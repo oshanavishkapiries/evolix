@@ -32,7 +32,8 @@ export default function AuthRouterComponent({children, role} : AuthRouterCompone
                 } else {
                     setUserRole("user");
                 }
-            } catch (error) {
+            } catch (error:any) {
+                console.log(error.message)
                 router.push("/auth/login");
             } finally {
                 setLoading(false);
