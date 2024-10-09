@@ -32,7 +32,7 @@ export default function AuthRouterComponent({children, role} : AuthRouterCompone
                 } else {
                     setUserRole("user");
                 }
-            } catch (error:any) {
+            } catch (error : any) {
                 console.log(error.message)
                 router.push("/auth/login");
             } finally {
@@ -56,8 +56,6 @@ export default function AuthRouterComponent({children, role} : AuthRouterCompone
     const isAuthorized = () => {
         if (!role || !userRole) 
             return false;
-        
-
         const allowedRoles = role.split(",");
         const allUserRoles = userRole.split(",");
 
@@ -69,7 +67,7 @@ export default function AuthRouterComponent({children, role} : AuthRouterCompone
         <div> {
             isAuthorized() ? (React.cloneElement(children as React.ReactElement, {role: userRole})) : (
 
-                <div className="w-full min-h-screen flex justify-center items-center">
+                <div className="w-full min-h-screen space-y-3 flex flex-col justify-center items-center">
                     <p>Unauthorized</p>
                 </div>
             )

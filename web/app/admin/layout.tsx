@@ -1,5 +1,5 @@
 
-import { DynamicBreadcrumb } from '@/components/admin/Breadcrumb';
+import { DynamicBreadcrumb } from '@/components/common/Breadcrumb';
 import AdminNavbar from '@/components/admin/Navbar';
 import AdminSider from '@/components/admin/Sider';
 import AuthRouterComponent from '@/components/common/AuthRouterComponent';

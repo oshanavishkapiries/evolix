@@ -13,7 +13,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowLogin(true), 1000); // Show login after 1 second
+    const timer = setTimeout(() => setShowLogin(true), 1000);
     return () => clearTimeout(timer);
   }, []);
 

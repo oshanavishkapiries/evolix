@@ -6,15 +6,15 @@ import {usePathname} from 'next/navigation';
 export const menuItems = [
     {
         name: 'Dashboard',
-        path: '/admin',
+        path: '/',
         icon: HomeIcon
     }, {
         name: 'Movies',
-        path: '/admin/movies',
+        path: '/movies',
         icon: FilmIcon
     }, {
         name: 'TV Shows',
-        path: '/admin/tv-shows',
+        path: '/tv-shows',
         icon: TvIcon
     },
 ];
