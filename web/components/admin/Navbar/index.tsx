@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import MobileNav from "../../admin/MobileNav"
 import Profile from "@/components/common/profile"
+import ItemSearch from "../ItemSearch"
 
 
 const AdminNavbar = () => {
@@ -17,8 +18,9 @@ const AdminNavbar = () => {
                             width={200}
                             height={40}/>
                     </Link>
-
                 </div>
+                {/* search bar */}
+                <ItemSearch />
                 {/* profile */}
                 <Profile/>
             </header>

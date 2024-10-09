@@ -24,10 +24,17 @@ export default function LoginPage() {
       toast.promise(userPromise, {
         loading: "Signing in...",
         success: "Signed in successfully!",
-        error: "Failed to sign in. Please try again."
+        error: "Failed to sign in. Please try again.",
       });
       const user = await userPromise;
-      localStorage.setItem("user", JSON.stringify({uid: user.uid, displayName: user.displayName, email: user.email}));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+        })
+      );
       router.push("/");
     } catch (error) {
       console.error("Error signing in with Google:", error);
@@ -40,13 +47,19 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col items-center bg-[#28313B] justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="mb-8">
         <Link href="/">
-          <Image src="/svg/evolix.svg" className="w-[120px]" alt="logo" width={200} height={40}/>
+          <Image
+            src="/img/icon.png"
+            alt="Evolix Logo"
+            className="w-28 h-28 border-4 border-primary rounded-2xl"
+            width={200}
+            height={200}
+          />
         </Link>
       </div>
-      
+
       <AnimatePresence>
         {showLogin && (
-          <motion.div 
+          <motion.div
             className="max-w-sm px-5 py-3 space-y-3 rounded-md flex flex-col items-center justify-center bg-muted drop-shadow-lg overflow-hidden"
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "100%", opacity: 1 }}
@@ -57,9 +70,11 @@ export default function LoginPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.3 }}
             >
-              <h2 className="max-lg:text-xs text-sm">Would you like to sign in to your evolix account?</h2>
+              <h2 className="max-lg:text-xs text-sm">
+                Would you like to sign in to your evolix account?
+              </h2>
             </motion.div>
-            <motion.button 
+            <motion.button
               onClick={handleGoogleSignIn}
               disabled={loading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md bg-primary text-background"

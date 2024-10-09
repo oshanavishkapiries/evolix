@@ -1,11 +1,8 @@
-"use client"
+"use client";
 //import { getMovieData } from '@/utils/tmdb/getMovieData';
-import React from 'react'
+import React from "react";
 
 const MoviePage = () => {
-
-
-
   //const [movieData, setMovieData] = React.useState(null);
 
   // React.useEffect(() => {
@@ -20,10 +17,13 @@ const MoviePage = () => {
   //   return <div>Loading...</div>;
   // }
 
-
   return (
-    <div>ok</div>
-  )
-}
+    <>
+      <div className="flex flex-col items-center w-full">
+       
+      </div>
+    </>
+  );
+};
 
-export default MoviePage
+export default MoviePage;

@@ -15,7 +15,7 @@ const AdminLayout = ({children} : Readonly < {
                     <div className="flex-1">
                         {/* nav */}
                         <AdminNavbar/>
-                        <main className="grid gap-6 p-4 lg:grid-cols-2 lg:p-6 xl:grid-cols-3">
+                        <main className="w-full mt-3">
                             {children} </main>
                     </div>
                 </div>
