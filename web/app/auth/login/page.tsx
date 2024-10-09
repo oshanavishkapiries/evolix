@@ -31,8 +31,6 @@ export default function LoginPage() {
         "user",
         JSON.stringify({
           uid: user.uid,
-          displayName: user.displayName,
-          email: user.email,
         })
       );
       router.push("/");
@@ -44,7 +42,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#28313B] justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col items-center bg-evodark1 justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="mb-8">
         <Link href="/">
           <Image

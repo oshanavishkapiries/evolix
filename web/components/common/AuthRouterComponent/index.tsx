@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getUserRole } from "@/firebase/functions";
+import { getUser } from "@/firebase/functions";
 import Loader from "../Loader";
 import Image from "next/image";
+import useUserStore from "@/stores/userStore";
 
 interface AuthRouterComponentProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export default function AuthRouterComponent({
   role,
 }: AuthRouterComponentProps) {
   const [userRole, setUserRole] = useState<string | null>(null);
+  const { setUser } = useUserStore();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -28,10 +30,12 @@ export default function AuthRouterComponent({
         }
 
         const user = JSON.parse(storedUser);
-        const roleFromDB = await getUserRole(user.uid);
+        const roleFromDB: any = await getUser(user.uid);
+        setUser(roleFromDB);
+        console.log("User role from DB: ", roleFromDB);
 
         if (roleFromDB) {
-          setUserRole(roleFromDB);
+          setUserRole(roleFromDB.roles);
         } else {
           setUserRole("user");
         }
@@ -44,7 +48,7 @@ export default function AuthRouterComponent({
     };
 
     handleAuth();
-  }, [router]);
+  }, [router, setUser]);
 
   if (loading) {
     return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -10,6 +11,7 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+			evodark1:"#28313B",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
