@@ -32,7 +32,6 @@ export default function AuthRouterComponent({
         const user = JSON.parse(storedUser);
         const roleFromDB: any = await getUser(user.uid);
         setUser(roleFromDB);
-        console.log("User role from DB: ", roleFromDB);
 
         if (roleFromDB) {
           setUserRole(roleFromDB.roles);
