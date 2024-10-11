@@ -46,6 +46,10 @@ const BackDropCardContainer = ({ title, description, children }: any) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    updateScrollButtons();
+  }, [children]);
+
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({

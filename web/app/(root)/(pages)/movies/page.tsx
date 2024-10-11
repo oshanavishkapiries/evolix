@@ -22,7 +22,9 @@ const MoviePage = () => {
 
 
   return (
-    <div>ok</div>
+    <>
+    
+    </>
   )
 }
 
