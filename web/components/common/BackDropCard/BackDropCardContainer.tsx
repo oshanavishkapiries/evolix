@@ -2,33 +2,11 @@
 import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useWindowWidth } from "@react-hook/window-size";
 
 const BackDropCardContainer = ({ title, description, children }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const windowWidth = useWindowWidth();
-
-  let cardWidth = 200;
-  let visibleCards = 2;
-
-  if (windowWidth >= 1536) {
-    cardWidth = 400;
-    visibleCards = 6;
-  } else if (windowWidth >= 1280) {
-    cardWidth = 320;
-    visibleCards = 5;
-  } else if (windowWidth >= 1024) {
-    cardWidth = 300;
-    visibleCards = 4;
-  } else if (windowWidth >= 768) {
-    cardWidth = 280;
-    visibleCards = 3;
-  } else if (windowWidth >= 640) {
-    cardWidth = 220;
-    visibleCards = 2;
-  }
 
   const updateScrollButtons = () => {
     if (scrollRef.current) {
@@ -52,8 +30,10 @@ const BackDropCardContainer = ({ title, description, children }: any) => {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      // Scroll by a percentage of the viewable area (e.g., 50% of the visible width)
       scrollRef.current.scrollBy({
-        left: -(cardWidth * visibleCards),
+        left: -(clientWidth * 0.5),
         behavior: "smooth",
       });
     }
@@ -61,8 +41,10 @@ const BackDropCardContainer = ({ title, description, children }: any) => {
 
   const scrollRight = () => {
     if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      // Scroll by a percentage of the viewable area (e.g., 50% of the visible width)
       scrollRef.current.scrollBy({
-        left: cardWidth * visibleCards,
+        left: clientWidth * 0.5,
         behavior: "smooth",
       });
     }

@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 import BackDropCardContainer from "@/components/common/BackDropCard/BackDropCardContainer";
 import LandScapeCard from "@/components/common/BackDropCard/LandScapeCard";
+import PortalCard from "@/components/common/BackDropCard/PortalCard";
 
 interface Movie {
   id: number;
   title: string;
+  poster_path: string;
   backdrop_path: string;
   release_date: string;
   vote_average: number;
@@ -67,42 +69,14 @@ const YourComponent = () => {
               />
             ))}
       </BackDropCardContainer>
-      <BackDropCardContainer title="Latest Releases" description="Now Playing">
-        {movies.length > 0 &&
-          movies
-            .slice(10, 20)
-            .map((movie) => (
-              <LandScapeCard
-                key={movie.id}
-                imageUrl={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                title={movie.title}
-                description={movie.release_date?.slice(0, 4)}
-              />
-            ))}
-      </BackDropCardContainer>
-      <BackDropCardContainer title="Popular Movies" description="New Movies">
+      <BackDropCardContainer title="Popular Movies" description="on evolix">
         {movies.length > 0 &&
           movies
             .slice(0, 10)
-            .reverse()
             .map((movie) => (
-              <LandScapeCard
+              <PortalCard
                 key={movie.id}
-                imageUrl={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                title={movie.title}
-                description={movie.release_date?.slice(0, 4)}
-              />
-            ))}
-      </BackDropCardContainer>
-      <BackDropCardContainer title="Top Rated Movies" description="Top Rated">
-        {movies.length > 0 &&
-          movies
-            .slice(10, 20)
-            .reverse()
-            .map((movie) => (
-              <LandScapeCard
-                key={movie.id}
-                imageUrl={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                imageUrl={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 title={movie.title}
                 description={movie.release_date?.slice(0, 4)}
               />

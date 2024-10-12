@@ -1,4 +1,4 @@
-import AdminNavbar from "@/components/common/Navbar";
+import Navbar from "@/components/common/Navbar";
 import AdminSider from "@/components/common/Sider";
 import AuthRouterComponent from "@/components/common/AuthRouterComponent";
 import React from "react";
@@ -16,8 +16,8 @@ const AdminLayout = ({
           <AdminSider />
           <div className="flex-1 overflow-y-scroll">
             {/* nav */}
-            <AdminNavbar />
-            <main className="w-full mt-3 ">{children} </main>
+            <Navbar />
+            <main className="w-full mt-3 mb-16">{children} </main>
           </div>
         </div>
       </AuthRouterComponent>

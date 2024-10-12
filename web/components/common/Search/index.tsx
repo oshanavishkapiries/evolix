@@ -16,7 +16,7 @@ const Search = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full max-w-md relative">
+      <div className="flex flex-col items-center w-full max-w-3xl relative">
         <div className="relative w-full">
           <Input
             type="text"
