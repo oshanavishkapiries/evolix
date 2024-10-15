@@ -59,26 +59,28 @@ const YourComponent = () => {
       >
         {movies.length > 0 &&
           movies
-            .slice(0, 10)
+            .slice(0, 12)
             .map((movie) => (
               <LandScapeCard
                 key={movie.id}
                 imageUrl={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                 title={movie.title}
                 description={movie.release_date?.slice(0, 4)}
+                linkUrl={`/movie/${movie.id}`}
               />
             ))}
       </BackDropCardContainer>
       <BackDropCardContainer title="Popular Movies" description="on evolix">
         {movies.length > 0 &&
           movies
-            .slice(0, 10)
+            .slice(0, 12)
             .map((movie) => (
               <PortalCard
                 key={movie.id}
                 imageUrl={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 title={movie.title}
                 description={movie.release_date?.slice(0, 4)}
+                linkUrl={`/movie/${movie.id}`}
               />
             ))}
       </BackDropCardContainer>

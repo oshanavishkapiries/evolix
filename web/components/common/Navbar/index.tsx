@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "../../common/MobileNav";
 import Profile from "../profile";
-import Search from "../Search";
 
 const Navbar = () => {
   return (
@@ -23,8 +22,6 @@ const Navbar = () => {
             height={40}
           />
         </Link>
-        {/* Search */}
-        <Search />
         {/* profile */}
         <Profile />
       </header>
